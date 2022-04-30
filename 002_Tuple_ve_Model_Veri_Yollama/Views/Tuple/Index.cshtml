@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+@model (List<_002_Tuple_ve_Model_Veri_Yollama.Models.Customer> customers, List<_002_Tuple_ve_Model_Veri_Yollama.Models.Product> products) 
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        
+        <h4>Customer List</h4>
+        <hr />
+        @foreach (var customer in @Model.customers)
+        {
+            <ul>
+            <li>@customer.Name</li>
+            <li>@customer.Surname</li>
+            <li>@customer.Age</li>
+            </ul>
+            <hr />    
+        }
+
+        <h4>Product List</h4>
+        <hr />
+        @foreach (var product in @Model.products)
+        {
+            <ul>
+            <li>@product.Name</li>
+            <li>@product.Price</li>
+            <li>@product.Stock</li>
+            </ul>
+            <hr />    
+        }
+    </div>
+</body>
+</html>

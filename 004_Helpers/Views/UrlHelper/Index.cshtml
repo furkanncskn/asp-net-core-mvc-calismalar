@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UrlHelper</title>
+</head>
+<body>
+    <div>
+        <h4>Action</h4>
+        @*<a href="/UrlHelper/UrlHelperAction">Ben Kimim ?</a>*@
+        <a href="@Url.Action("UrlHelperAction","UrlHelper")">Action</a>
+        
+        <br />
+
+        <h4>ActionLink</h4>
+        @*<a href="http://localhost:16101/UrlHelper/UrlHelperAction">Action Link</a>*@
+        <a href="@Url.ActionLink("UrlHelperAction","UrlHelper")">Action Link</a>
+        
+        <br />
+
+        <h4>Property</h4>
+        @Url.ActionContext.HttpContext.Connection.LocalPort
+        <br />
+        @Url.ActionContext.ModelState.Count
+        <br />
+        @Url.ActionContext.RouteData.DataTokens.Values
+        <br />
+        @Url.ActionContext.ActionDescriptor.DisplayName
+    </div>
+</body>
+</html>

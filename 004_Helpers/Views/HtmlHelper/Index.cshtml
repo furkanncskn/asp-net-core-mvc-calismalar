@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    @*
+        Partial metodu ile kullanımda aşağıda ki gibi bir uyarı verecektir.
+        
+        Warning
+        -------
+        MVC1000 Use of IHtmlHelper.Partial may result in application deadlocks. 
+        Consider using <partial> Tag Helper or IHtmlHelper.PartialAsync
+
+        Sistemin deadlock olma ihtimaline karşı bir uyarıdır. Bizde eğer partial 
+        metodunun yaptığı işi gerçekleştirmek istiyorsak, PartiaAsync metodunu 
+        kullanarak bu uyarıyı almayabiliriz.
+    *@
+    
+    @Html.Partial("PartialViews/Partial.cshtml")
+    
+    <hr />
+
+    @await Html.PartialAsync("PartialViews/Partial.cshtml")
+
+    <hr />
+
+    @{
+        Html.RenderPartial("PartialViews/Partial.cshtml");
+    }
+
+    <hr />
+    
+    @{
+        await Html.RenderPartialAsync("PartialViews/Partial.cshtml");
+    }
+
+   <hr />
+
+   @*
+    Aşağıda kullanılan Form'a yönelik helper'lar prtaikte fazla kullanılmamalıdır.
+    Sebebi, ASP.NET Core ile gelen TagHelper'lardır. Form Helper'lar sunucuya iş yükü
+    bindirir bu sebeple performans kaybına neden olur, bu nedenler TagHelper'lar 
+    geliştirmesi yapılmıştır. Fakat yinede bilgi olması için böyle özelliklerde var
+    bilinmesi için bir kaç örnek yapalım 
+    *@
+
+   @*<a href="/HtmlHelper/HtmlAction">ActinLink</a>*@
+   @Html.ActionLink("ActinLink", "HtmlAction", "HtmlHelper")
+
+   <hr />
+
+   @Html.CheckBox("asdad", true)
+   
+   <hr />
+
+   @Html.Label("TextBox", "Label")
+   @Html.TextBox("TextBox")
+
+   <hr />
+
+   @Html.DisplayText("Display")
+
+</body>
+</html>

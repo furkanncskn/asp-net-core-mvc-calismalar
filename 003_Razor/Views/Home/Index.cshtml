@@ -1,0 +1,42 @@
+﻿@using _003_Razor.Controllers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @{
+        int x = 3;
+        int y = 5;
+
+        double result;
+    }
+    <div>
+         <text>@("Result = ")</text>
+        @switch (ViewBag.Operation)
+        {   
+            case Operation.Addition:
+                <text>@(result = x + y)</text>
+                break;
+            case Operation.Subtraction:
+                <text>@(result = x - y)</text>
+                break;
+            case Operation.Multiplication:
+                <text>@(result = x * y)</text>
+                break;
+            case Operation.Division:
+                <text>@(result = (double)x / y)</text>
+                break;
+            default:
+                break;
+        }
+    </div>
+</body>
+</html>
